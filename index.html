@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Store Locator Test</title>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="google-map" class="container-fluid">
+        <div class="row row-no-padding">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="col-xs-12 col-md-6 col-lg-12">
+                    <div class="nearest-location-app hidden-lg">
+                        <div class="nearest-location-header">
+                            <h3 class="intro-bold sm">Nearest Location:</h3>
+                            <div class="location-item bounce-transition">
+                                <div class="current-location-info" :class="{'hide': !currentLocation.place}">
+                                    <div class="font-xlg">{{currentLocation.place}}</div>
+                                    <div class="font-lg">{{currentLocation.address}}</div>
+                                    <div class="phone font-lg">Phone: {{currentLocation.phone}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-12">
+                    <div id='map-canvas'></div>
+                    <h2 class="map-title md intro-bold visible-lg fade-transition">{{currentLocation.cityLabel}}</h2>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="nearest-location-app">
+                    <div class="nearest-location-header visible-lg">
+                        <h3 class="intro-bold sm">Nearest Location:</h3>
+                        <div class="location-item fade-transition">
+                            <div class="current-location-info" :class="{'hide': !currentLocation.place}">
+                                <div class="font-xlg">{{currentLocation.place}}</div>
+                                <div class="font-lg">{{currentLocation.address}}</div>
+                                <div class="phone font-lg">Phone: {{currentLocation.phone}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location-search">
+                        <input class="location-query font-md" type="text" v-model="address" placeholder="ENTER ZIP, CITY, OR STATE" value="" />
+                        <button type="submit" class="btn-search" v-on:click="findLocation"><span class="icon-search glyphicon glyphicon-search bounce-transition"></span></button>
+                    </div>
+                    <div id="nearest-locations" v-if="currentLocation.place">
+                        <h3 class="heading-nearby-locations sm intro-bold">Other Locations:</h3>
+                        <span v-if="!nearestLocationsCount">No locations found.</span>
+                        <ul id="distances-list" class="">
+                            <li v-for="location in nearestLocations | filterBy filterRange | recordLength 'nearestLocationsCount' | limit searchFilter.numItemsToShow" transition="slide" stagger="100">
+                                <div class="location-item">
+                                    <div class="icon">
+                                        <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="location-info" v-on:click="changeLocation(location.location, $event)">
+                                        <a class="location-name font-sm">{{location.location.place}}
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        </a>
+                                        <div class="location-address font-xs">{{location.location.address}}</div>
+                                        <div class="location-phone font-xs">Phone: {{location.location.phone}}</div>
+                                        <div class="loction-distance font-xs">Miles away: {{location.distance | metersToMiles | floor}} </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="more-locations">
+                        <a class="btn-circle" :class="{'btn-circle-inverse': searchFilter.numItemsToShow == searchFilter.MIN_NUM_ITEMS_TO_SHOW}" v-on:click.stop.prevent="seeMore()">
+                            <div class="btn-text">{{searchFilter.buttonText}}</div>
+                            <div class="btn-circle-hover">
+                                <div class="btn-text">{{searchFilter.buttonText}}</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/underscore/underscore-min.js"></script>
+    <script src="libs/vue/dist/vue.js"></script>
+    
+    <script src="dist/js/main.min.js"></script>
+    <script src="dist/js/storelocator/maplabel.min.js"></script>
+    <script src="dist/js/storelocator/filters.min.js"></script>
+    <script src="dist/js/storelocator/transitions.min.js"></script>
+    <script src="dist/js/storelocator/maputility.min.js"></script>
+    <script src="dist/js/storelocator/app.min.js"></script>
+
+</body>
+
+</html>

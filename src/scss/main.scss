@@ -1,0 +1,11 @@
+@import 'constants';
+@import 'mixins';
+@import 'animations';
+@import 'storelocator';
+@import 'buttons';
+@import 'search';
+@import 'shortcuts';
+@import 'fonts';
+body {
+    color: $primary-color
+}

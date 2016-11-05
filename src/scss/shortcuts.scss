@@ -1,0 +1,58 @@
+@import 'mixins';
+@import 'constants';
+
+.row-no-padding [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+h2.sm,
+h3.sm {
+    font-size: 28px;
+    @include breakpoint(xs) {
+        font-size: 28px * $mobile-scaling-factor;
+    }
+}
+h2.md,
+h3.md {
+    font-size: 40px;
+    @include breakpoint(xs) {
+        font-size: 55px * $mobile-scaling-factor;
+    }
+}
+h2.lg,
+h3.lg {
+    font-size: 60px;
+    @include breakpoint(xs) {
+        font-size: 75px * $mobile-scaling-factor;
+    }
+}
+.font-xlg {
+    font-size: 30px;
+    @include breakpoint(xs) {
+        font-size: 36px * $mobile-scaling-factor;
+    }
+}
+.font-lg {
+    font-size: 26px;
+    @include breakpoint(xs) {
+        font-size: 30px * $mobile-scaling-factor;
+    }
+}
+.font-md {
+    font-size: 22px;
+    @include breakpoint(xs) {
+        font-size: 26px * $mobile-scaling-factor;
+    }
+}
+.font-sm {
+    font-size: 20px;
+    @include breakpoint(xs) {
+        font-size: 24px * $mobile-scaling-factor;
+    }
+}
+.font-xs {
+    font-size: 18px;
+    @include breakpoint(xs) {
+        font-size: 22px * $mobile-scaling-factor;
+    }
+}

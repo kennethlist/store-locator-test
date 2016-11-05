@@ -1,0 +1,21 @@
+{
+  "name": "gulp-sample",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6",
+    "underscore": "^1.8.3",
+    "vue": "^1.0.26"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "gulp-sample",
+  "version": "1.0.0",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.0.0",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-uglify": "^1.1.0",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-optipng": "^5.1.0",
+    "imagemin-pngquant": "^5.0.0"
+  }
+}

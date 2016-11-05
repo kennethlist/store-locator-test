@@ -1,0 +1,68 @@
+@import 'constants';
+.btn-circle .btn-circle-hover,
+.btn-circle.btn-circle-inverse {
+    background: $btn-circle-secondary-color;
+    color: $red-accent;
+    &:active,
+    &:focus,
+    &:visited,
+    &:hover {
+        background: $btn-circle-secondary-color;
+        color: $red-accent;
+    }
+}
+.btn-circle,
+.btn-circle-inverse .btn-circle-hover {
+    background: $red-accent;
+    color: $btn-circle-secondary-color;
+    &:active,
+    &:focus,
+    &:visited,
+    &:hover {
+        background: $red-accent;
+        color: $btn-circle-secondary-color;
+    }
+}
+.btn-circle {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s ease-in;
+    box-shadow: inset 0 0 0 2px $red-accent;
+    font-size: 14px;
+    word-spacing: 96px;
+    cursor: pointer;
+    .btn-text {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+    }
+}
+.btn-circle-hover {
+    position: absolute;
+    background: $btn-circle-secondary-color;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0);
+    border: 2px solid $red-accent;
+    font-size: 0;
+}
+.no-touch .btn-circle:hover .btn-circle-hover {
+    transform: scale(1);
+    opacity: 1;
+    font-size: 14px;
+    border: 2px solid $red-accent;
+}
